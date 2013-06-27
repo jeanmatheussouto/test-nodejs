@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clientes</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <h1>Cadastro de cliente</h1>
+  <form action="/cliente" method="post">
+    <label>Nome:
+      <input type="text" name="cliente[nome]">
+    </label>
+    <label>Idade:
+      <input type="text" name="cliente[idade]">
+    </label>
+    <button type="submit">Enviar</button>
+  </form>
+  <h1>Lista de clientes</h1>
+  <ul>
+    <% for(var i = 0; i < clientes.length; i++){ %>
+    <li><%= clientes[i].nome %> - <%= clientes[i].idade %>
+      <a href="/cliente/<%= i %>/editar">Editar</a>
+      &nbsp;|&nbsp;
+      <a href="/cliente/<%= i %>">Excluir</a>
+    </li>
+    <% } %>
+  </ul>
+</body>
+</html>
